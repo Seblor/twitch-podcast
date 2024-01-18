@@ -64,7 +64,6 @@ class DownloadManager {
     const download = this.currentDownloads[downloadId]
     if (download) {
       this.currentDownloads[download.id].abortController.abort()
-      download.stream.destroy()
       delete this.currentDownloads[download.id]
     }
   }
@@ -74,7 +73,7 @@ class DownloadManager {
     Object.values(this.currentDownloads).forEach(download => {
       if (download.userIdentifier === userIdentifier) {
         this.currentDownloads[download.id].abortController.abort()
-        download.stream.destroy()
+
         delete this.currentDownloads[download.id]
       }
     })
