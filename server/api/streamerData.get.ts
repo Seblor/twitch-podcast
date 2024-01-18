@@ -21,7 +21,8 @@ export default defineEventHandler(async (event) => {
   const formattedData = videos.data.user.videos ?? []
 
   // Removing the current broadcast as it will download as long as teh broadcast is live and will hog queue time
-  videos.data.user.videos.edges = videos.data.user.videos.edges?.filter(edge => edge.node.id !== userData.data.user.lastBroadcast.id)
+  // However, only the thumnail URL carries the last broadcast ID, so we need to filter it out
+  formattedData.edges = formattedData.edges?.filter(edge => !edge.node.animatedPreviewURL.includes(userData.data.user.lastBroadcast.id))
 
   return {
     name: query.streamerId,
