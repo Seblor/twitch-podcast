@@ -1,5 +1,9 @@
 # Twitch Podcast
 
+<p align="center">
+  <img src="./public/img/icon-192.png" />
+</p>
+
 This is an application that allows you to download any twitch VOD in an audio file suitable as a podcast.
 
 # Why ?
