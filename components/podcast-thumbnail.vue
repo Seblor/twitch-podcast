@@ -13,9 +13,9 @@
       </UModal>
     </KeepAlive>
     <template #footer>
-      <img :src="podcast.game.boxArtURL" alt="">
+      <img :src="podcast.game?.boxArtURL" alt="">
       <div class="flex flex-col grow content-center">
-        <span class="text-sm">{{ podcast.game.displayName }}</span>
+        <span class="text-sm">{{ podcast.game?.displayName ?? 'Unknown game' }}</span>
         <span class="text-gray-500">{{ secondsToHumanReadable(podcast.lengthSeconds) }}</span>
       </div>
     </template>

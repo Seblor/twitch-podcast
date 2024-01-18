@@ -76,7 +76,7 @@ async function downloadFile() {
       color: 'red',
       icon: 'i-heroicons-x-circle',
       title: 'Error',
-      description: 'An error occured while downloading the podcast',
+      description: 'An error occured while downloading the podcast, maybe it is only available for subscribers?',
       timeout: 5000,
     })
     return
