@@ -15,18 +15,20 @@ const YTDLP = YTDlpWrap.default as typeof YTDlpWrap;
 
 let ytDlpWrap: YTDlpWrap | null = null;
 
-if (!fs.existsSync('./bin/yt-dlp.exe')) {
+const binPath = './bin/yt-dlp' + (os.platform() === 'win32' ? '.exe' : '')
+
+if (!fs.existsSync(binPath)) {
   YTDLP.downloadFromGithub(
-    './bin/yt-dlp.exe',
+    binPath,
     '2023.12.30',
     os.platform()
   ).then(() => {
-    ytDlpWrap = new YTDLP('./bin/yt-dlp.exe');
+    ytDlpWrap = new YTDLP(binPath);
     console.log('downloaded')
     setReady!();
   });
 } else {
-  ytDlpWrap = new YTDLP('./yt-dlp.exe');
+  ytDlpWrap = new YTDLP(binPath);
   setReady!();
 }
 
