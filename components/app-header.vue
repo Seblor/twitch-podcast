@@ -7,6 +7,7 @@
       </div>
     </a>
     <div class="flex items-center">
+      <a href="https://github.com/Seblor/twitch-podcast" target="_blank"><Icon class="text-2xl m-2" name="mdi:github"></Icon></a>
       <ColorSwitcher class="text-2xl m-2" />
     </div>
   </div>

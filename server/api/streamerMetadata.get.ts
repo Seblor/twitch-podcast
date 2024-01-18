@@ -8,8 +8,6 @@ const twitchClient = TwitchGQL.Init();
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
 
-  await new Promise(resolve => setTimeout(resolve, 3000))
-
   const allStreamerData: StreamerData & StreamerMetadata = {
     ...await Promise.all<[StreamerData, StreamerMetadata[]]>([
       twitchClient.GetUser(query.streamerId),
